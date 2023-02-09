@@ -4,6 +4,7 @@ const cors = require('cors');
 const { sequelize } = require('./models');
 
 const router = require('./routes/router');
+const authRoute = require('./routes/authRouter');
 
 const app = express();
 
@@ -22,6 +23,7 @@ sequelize
   });
 
 app.use('/', router);
+app.use('/auth', authRoute);
 
 app.listen(process.env.SERVER_PORT, () => {
   console.log(`Server berhasil start di ${process.env.SERVER_PORT}`);
