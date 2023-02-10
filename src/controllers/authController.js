@@ -79,3 +79,9 @@ exports.deleteUser = async (req, res, next) => {
     res.status(404).json({ error });
   }
 };
+
+exports.updateUser = async (req, res, next) => {
+  const payload = req.params;
+  try {
+  } catch (error) {}
+};
