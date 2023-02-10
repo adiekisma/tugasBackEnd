@@ -61,3 +61,21 @@ exports.login = async (req, res, next) => {
     return res.status(500).send({ error });
   }
 };
+
+exports.deleteUser = async (req, res, next) => {
+  const payload = req.body;
+  try {
+    await Model.user
+      .findAll({ where: { username: payload.username } })
+      .then(async (result) => {
+        if (result.length > 0) {
+          await Model.user.destroy({ where: { username: payload.username } });
+          res.status(200).json({ message: 'delete user successfully' });
+        } else {
+          res.status(404).json({ message: 'username not found' });
+        }
+      });
+  } catch (error) {
+    res.status(404).json({ message: error });
+  }
+};
