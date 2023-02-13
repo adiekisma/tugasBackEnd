@@ -25,6 +25,31 @@ exports.register = async (req, res, next) => {
   }
 };
 
+// exports.register = async function registerUser(req, res) {
+//   try {
+//     const hashedPassword = bcrypt.hashSync(payload.password, 8);
+
+//     const payload = req.body;
+
+//     const registerUser = await user.create({
+//       firstname: payload.firstname,
+//       lastname: payload.lastname,
+//       username: payload.username,
+//       email: payload.email,
+//       password: hashedPassword,
+//     });
+//     res.status(201).json({
+//       msg: 'Todo successfully created',
+//       data: registerUser,
+//     });
+//   } catch (error) {
+//     res.status(500).json({
+//       msg: 'Internal server error',
+//       error,
+//     });
+//   }
+// };
+
 exports.login = async (req, res, next) => {
   try {
     const payload = req.body;
